@@ -2,28 +2,23 @@
 import { useState } from "react"
 
 export const ApiDictionary = () => {
-	const [word, setWord] = useState('test');
+	const [word, setWord] = useState('');
+	const [definition, setDefinition] = useState('');
 
-	// const handleFetchQuote = () => {
-	// 	(async () => {
-	// 		const url = 'https://zenquotes.io/api/random';
-	// 		const headers = {
-	// 			"Access-Control-Allow-Origin": "*",
-	// 			'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,PATCH,OPTIONS',
-	// 			mode: 'no-cors'
-	// 		};
-	// 		// const response = await fetch(url, {headers});
-	// 		// const data = await response.json();
-	// 		const response = await axios.post(url, {headers});
-	// 		const data = response.data;
-	// 		console.log(data);
-	// 	})();
-	// }
+	const handleFetchDefinition = () => {
+		(async () => {
+			const url = 'https://api.dictionaryapi.dev/api/v2/entries/en';
+			const response = await fetch(`${url}/${word}`);
+			const data = await response.json();
+			const definition = data[0].meanings[0].definitions[0].definition;
+			setDefinition(definition);
+		})();
+	}
 
 	return (
 		<div className="bg-gray-300 p-6 rounded-lg w-[20rem] flex flex-col gap-4 shadow-md shadow-slate-500">
-			<input value={word} onChange={(e) => setWord(e.target.value)} /> <button>Get definition</button>
-			<p>definition</p>
+			<input value={word} onChange={(e) => setWord(e.target.value)} /> <button onClick={handleFetchDefinition} >Get definition</button>
+			<p>{definition}</p>
 		</div>
 	)
 }
