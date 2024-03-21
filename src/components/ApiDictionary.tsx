@@ -10,8 +10,8 @@ export const ApiDictionary = () => {
 			const url = 'https://api.dictionaryapi.dev/api/v2/entries/en';
 			const response = await fetch(`${url}/${word}`);
 			const data = await response.json();
-			const definition = data[0].meanings[0].definitions[0].definition;
-			setDefinition(definition);
+			const _definition = data[0].meanings[0].definitions[0].definition;
+			setDefinition(_definition);
 		})();
 	}
 
