@@ -1,9 +1,9 @@
-import { ApiZenQuote } from "../components/ApiZenQuote"
+import { ApiDictionary } from "../components/ApiDictionary"
 
 export const PageWelcome = () => {
 	return (
 		<div className="flex gap-4 flex-wrap">
-		<ApiZenQuote/>
+		<ApiDictionary/>
 		</div>
 	)
 }
