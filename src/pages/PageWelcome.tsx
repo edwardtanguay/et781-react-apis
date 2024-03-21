@@ -1,5 +1,9 @@
+import { ApiZenQuote } from "../components/ApiZenQuote"
+
 export const PageWelcome = () => {
 	return (
-		<p>This is the welcome page.</p>
+		<div className="flex gap-4 flex-wrap">
+		<ApiZenQuote/>
+		</div>
 	)
 }
