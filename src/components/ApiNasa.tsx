@@ -18,7 +18,6 @@ export const ApiNasa = () => {
 			const _imageUrl = data.url;
 			setExplanation(_explanation);
 			setImageUrl(_imageUrl);
-			console.log(data);
 		})();
 	}
 
