@@ -16,6 +16,7 @@ export const ApiNasa = () => {
 			const _nasaData = structuredClone(nasaData) as NasaData;
 			_nasaData.explanation = data.explanation;
 			_nasaData.imageUrl = data.url;
+			_nasaData.title = data.title;
 			setNasaData(_nasaData);
 		})();
 	}
@@ -30,6 +31,7 @@ export const ApiNasa = () => {
 	return (
 		<ApiCard cardWidth="30rem">
 			<input value={nasaData.date} onChange={(e) => handleDateChange(e)} /> <button onClick={handleFetchApodData} >Get astronomy picture</button>
+			<h2 className="text-xl font-semibold">{nasaData.title}</h2>
 			<p><img src={nasaData.imageUrl} /></p>
 			<p>{nasaData.explanation}</p>
 		</ApiCard>
