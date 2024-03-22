@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { useState } from "react"
+import { ApiCard } from "./ApiCard";
 
 export const ApiDictionary = () => {
 	const [word, setWord] = useState('');
@@ -16,9 +17,9 @@ export const ApiDictionary = () => {
 	}
 
 	return (
-		<div className="bg-gray-300 p-6 rounded-lg w-[20rem] flex flex-col gap-4 shadow-md shadow-slate-500">
+		<ApiCard cardWidth="20rem">
 			<input value={word} onChange={(e) => setWord(e.target.value)} /> <button onClick={handleFetchDefinition} >Get definition</button>
 			<p>{definition}</p>
-		</div>
+		</ApiCard>
 	)
 }

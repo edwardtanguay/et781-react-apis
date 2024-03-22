@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { useState } from "react"
+import { ApiCard } from "./ApiCard";
 
 export const ApiNasa = () => {
 	const [date, setDate] = useState('2024-01-01');
@@ -22,10 +23,10 @@ export const ApiNasa = () => {
 	}
 
 	return (
-		<div className="bg-gray-300 p-6 rounded-lg w-[30rem] flex flex-col gap-4 shadow-md shadow-slate-500">
+		<ApiCard cardWidth="30rem">
 			<input value={date} onChange={(e) => setDate(e.target.value)} /> <button onClick={handleFetchApodData} >Get astronomy picture</button>
 			<p><img src={imageUrl}/></p>
 			<p>{explanation}</p>
-		</div>
+		</ApiCard>
 	)
 }
